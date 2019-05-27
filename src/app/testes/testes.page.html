@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>Testes</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <section class="banner" [ngClass]="active ? 'activeItem' : 'defaultItem'">
+        <div text-center padding>
+            <h1>Algum texto</h1>
+            <h2>Algum as asd asd</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi dicta ea eligendi enim fugit illum,
+                labore libero magnam nemo quam, rem tempore vero voluptas? Eaque expedita, nesciunt! Esse, natus
+                praesentium!</p>
+        </div>
+    </section>
+
+    <div class="anime" [ngHammer]="{event: 'swipe', direction: 'vertical'}"
+         [ngClass]="active ? 'activeItem' : 'defaultItem'"  (eventTriggered)="onSwipe($event)" [ngStyle]="{'transform': 'translateY(' + detaly + 'px'}" >
+        <ion-card color="light" >
+            <img src="https://ionicframework.com/docs/demos/api/card/madison.jpg"/>
+            <ion-card-header [ngClass]="!active ? 'hidden' : ''">
+                <ion-card-subtitle>Destination</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content [ngClass]="!active ? 'hidden' : ''">
+                Founded in 1829 on an isthmus between.
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>

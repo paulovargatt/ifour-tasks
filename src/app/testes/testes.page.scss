@@ -1,0 +1,39 @@
+.anime {
+  transition: 0.5s;
+}
+
+h1, h2, p {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.banner {
+  &.activeItem {
+    opacity: 0.1;
+  }
+
+  &.defaultItem {
+    opacity: 1;
+  }
+
+  width: 100%;
+  background: #4c8dff;
+  height: 75vh;
+  transition: 0.3s;
+}
+
+.anime.activeItem {
+  transform: translateY(-75vh);
+  opacity: 1;
+}
+
+.anime.defaultItem {
+  transform: translateY(-15vh);
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 0;
+  height: 0;
+}

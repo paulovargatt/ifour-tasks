@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar color="tertiary">
+        <ion-title>Testes Ref</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-grid *ngIf="users && users.length" no-padding no-margin>
+        <ion-row no-padding>
+            <ion-col size="6" *ngFor="let i of users" no-padding style="background: white">
+                <ion-card color="light" routerLink="/user-desc/{{i.id}}">
+                    <div>
+                        <img [animateRef]="'uuu'" src="{{i.avatar}}"/>
+                    </div>
+                    <ion-card-header>
+                        <ion-card-subtitle>{{i.first_name}} - {{i.last_name}}</ion-card-subtitle>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div [animateRef]="'myText'" style="background: blue" routerLink="/user-desc/2">>Hello there</div>
+
+</ion-content>

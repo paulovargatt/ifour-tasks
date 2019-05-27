@@ -1,0 +1,145 @@
+<ion-content>
+
+    <div class="logo">
+        <img src="https://i.imgur.com/BffSOq8.png"
+             alt="">
+        <span class="user-name">Paulo</span>
+    </div>
+    <div class="arrow" text-center>
+        <ion-button fill="clear" color="light" (click)="pageDown = !pageDown; detaly =0">
+            <ion-icon name="arrow-down" [ngClass]="pageDown ? 'rotate-icon' : ''" mode="ios" slot="icon-only"></ion-icon>
+        </ion-button>
+    </div>
+
+
+    <div class="content-after-down" [ngClass]="pageDown ? 'content-active' : 'opacity-content'">
+        <div class="qr" text-center>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/220px-QR_code_for_mobile_English_Wikipedia.svg.png" alt="">
+        </div>
+        <p>Banco <span class="bold">260 - Nu Pagamentos S.A</span></p>
+        <p>Agencia <span class="bold">001</span></p>
+        <p>Conta <span class="bold">460530-4</span></p>
+        <ion-list>
+            <ion-item>
+                <ion-icon slot="start" name="help-circle-outline"></ion-icon>
+                <ion-label>Help-me</ion-label>
+                <ion-icon slot="end" name="arrow-forward" mode="ios"></ion-icon>
+            </ion-item>
+            <ion-item>
+                <ion-icon slot="start" name="contact"></ion-icon>
+                <ion-label>Perfil</ion-label>
+                <ion-icon slot="end" name="arrow-forward" mode="ios"></ion-icon>
+            </ion-item>
+            <ion-item>
+                <ion-icon slot="start" name="contact"></ion-icon>
+                <ion-label>Perfil</ion-label>
+                <ion-icon slot="end" name="arrow-forward" mode="ios"></ion-icon>
+            </ion-item>
+            <ion-item>
+                <ion-icon slot="start" name="contact"></ion-icon>
+                <ion-label>Perfil</ion-label>
+                <ion-icon slot="end" name="arrow-forward" mode="ios"></ion-icon>
+            </ion-item>
+            <ion-item>
+                <ion-icon slot="start" name="contact"></ion-icon>
+                <ion-label>Perfil</ion-label>
+                <ion-icon slot="end" name="arrow-forward" mode="ios"></ion-icon>
+            </ion-item>
+            <div padding margin></div>
+        </ion-list>
+    </div>
+
+
+    <ion-slides pager="true" #itemPan
+                class="manipulate"
+                [ngStyle]="{'transform': 'translateY(' + detaly + 'px'} "
+                [ngClass]="pageDown ? 'pagedown' : ''"
+    >
+        <ion-slide [ngHammer]="{event: 'swipe', direction: 'vertical'}" (eventTriggered)="onSwipe($event)">
+            <div class="box">
+
+                <div class="flex">
+                    <div class="desc">
+                        <div class="icon">
+                            <ion-icon name="card" mode="ios"></ion-icon>
+                        </div>
+                        <span>Fatura Atual</span>
+                        <h1 class="value"><span class="cifrao">R$ </span>2.474,52</h1>
+                        <h2 class="limit">Limite disponível <span class="value-dis">R$ 3.266,08</span></h2>
+                    </div>
+                    <div class="bar">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="icon">
+                        <ion-icon name="cart" mode="ios"></ion-icon>
+                    </div>
+                    <div class="text">
+                        <p>Compra mais recente em Hiper Zaffari lJ valor de R$12,00 Hoje</p>
+                    </div>
+                    <div class="icon">
+                        <ion-icon name="arrow-forward" mode="ios"></ion-icon>
+                    </div>
+                </div>
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <h1>Slide 2</h1>
+        </ion-slide>
+        <ion-slide>
+            <h1>Slide 3</h1>
+        </ion-slide>
+    </ion-slides>
+
+
+    <div class="menu" [ngClass]="pageDown ? 'opacity' : 'active-item'">
+        <div class="card">
+            <div class="icon">
+                <ion-icon name="git-branch"></ion-icon>
+            </div>
+            <div class="text">
+                <span>Cobrar</span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="icon">
+                <ion-icon name="alarm" mode="md"></ion-icon>
+            </div>
+            <div class="text">
+                <span>Depositar</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="icon">
+                <ion-icon name="options"></ion-icon>
+            </div>
+            <div class="text">
+                <span>Ajustar limite</span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="icon">
+                <ion-icon name="contacts"></ion-icon>
+            </div>
+            <div class="text">
+                <span>Indicar amigos</span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="icon">
+                <ion-icon name="contacts"></ion-icon>
+            </div>
+            <div class="text">
+                <span>Indicar amigos</span>
+            </div>
+        </div>
+        <div class="card">
+
+        </div>
+    </div>
+
+</ion-content>

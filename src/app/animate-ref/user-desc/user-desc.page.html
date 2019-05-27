@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-toolbar color="tertiary">
+        <ion-buttons slot="start">
+            <ion-back-button color="light" defaultHref="/animate-ref"></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{user && user.id ? user.first_name : ''}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+    <div class="" padding text-center *ngIf="user && user.id">
+        <div style="background: white">
+            <img  [animateRef]="'uuu'" src="{{user.avatar}}" alt="">
+        </div>
+        <br>
+        <ion-item-divider></ion-item-divider>
+
+        <h1>{{user.first_name}} {{user.last_name}}</h1>
+
+        <p>{{user.email}}</p>
+    </div>
+    <div [animateRef]="'myText'" style="background: red"> Hello there</div>
+
+
+</ion-content>
