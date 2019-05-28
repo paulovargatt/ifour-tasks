@@ -1,12 +1,29 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
+$nubank: #81269d;
+
 ion-content {
-  --background: #81269d
+  --background: #81269d;
 }
 
 h2, h1, p, h3, h4, h5, span {
   margin: 0;
   padding: 0;
+}
+
+ion-header {
+  height: 74px;
+  background: $nubank
+}
+
+ion-toolbar {
+  background: $nubank;
+  --border-width: 0px !important;
+
+  ion-title {
+    height: 60px;
+    position: relative;
+  }
 }
 
 .logo {
@@ -15,8 +32,8 @@ h2, h1, p, h3, h4, h5, span {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  height: 50px;
-  margin-top: 30px;
+  //height: 50px;
+  margin-top: 10px;
 
   img {
     width: 70px;
@@ -32,13 +49,21 @@ h2, h1, p, h3, h4, h5, span {
 }
 
 .arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 28px;
+  position: fixed;
+  width: 100%;
+  background: #81269d;
+  z-index: 555;
+  margin-top: -5px;
+
   ion-button {
     color: #bf76d7c7;
-    margin-top: 10px;
-    transition: 1s;
 
     ion-icon {
-      transition: 1s;
+      transition: 0.5s;
     }
   }
 }
@@ -54,11 +79,11 @@ h2, h1, p, h3, h4, h5, span {
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    padding: 22px 0px;
+    padding: 10px 0px;
 
     .desc {
       text-align: left;
-      padding: 15px;
+      padding: 10px 15px;
       font-family: 'Roboto', sans-serif;
 
       span {
@@ -212,17 +237,46 @@ h2, h1, p, h3, h4, h5, span {
 
 .content-active {
   padding: 15px;
+  margin-top: 18px;
   opacity: 1 !important;
-  transition: all 0.5s;
-  height: 75vh !important;
+  transition: all 0.3s;
+  height: 100vh !important;
   overflow: scroll;
-  position: fixed;
+  position: absolute;
   width: 100%;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+.padding-menu {
+  margin-top: 70px;
 }
 
 .opacity-content {
-  animation: hide 1s;
+  animation: hide 0.3s;
 }
+
+.home {
+  animation: homeAnime 0.3s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.home-menu {
+  animation: homeAnime 0.5s ease-in;
+
+}
+
+@keyframes homeAnime {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
 
 @keyframes hide {
   0% {
@@ -236,8 +290,9 @@ h2, h1, p, h3, h4, h5, span {
 }
 
 .content-after-down {
-  opacity: 0;
+  opacity: 0.7;
   height: 0;
+  transform: translate3d(0, -1000px, 0);
   font-family: 'Roboto', sans-serif;
 
   p {
@@ -272,12 +327,16 @@ h2, h1, p, h3, h4, h5, span {
 }
 
 ion-slides {
-  transition: all 0.5s;
+  margin-top: 15px;
+  transition: all 0.3s;
 }
 
 .pagedown {
-  transform: translateY(110%)!important;
+  transform: translate3d(0, 110%, 0) !important;
 
+  z-index: 20;
+  overflow: hidden;
+  position: fixed;
 }
 
 .manipulate {
@@ -286,12 +345,11 @@ ion-slides {
 
 .opacity {
   opacity: 0;
-  transition: opacity 0.7s;
 }
 
 .active-item {
   opacity: 1;
-  transition: all 1s;
+  transition: all 0.3s;
 }
 
 .rotate-icon {

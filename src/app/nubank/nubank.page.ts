@@ -10,6 +10,8 @@ export class NubankPage implements OnInit {
     detaly;
     pageDown = false;
 
+    entered = false;
+
     @ViewChild('itemPan') itemPan: ElementRef;
 
     constructor(public domCtrl: DomController,
@@ -19,6 +21,9 @@ export class NubankPage implements OnInit {
     }
 
     ngOnInit() {
+        setTimeout(() => {
+            this.entered = true;
+        }, 500);
     }
 
     onSwipe(e) {
