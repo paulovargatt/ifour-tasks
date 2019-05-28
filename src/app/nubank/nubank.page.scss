@@ -261,7 +261,7 @@ ion-toolbar {
 
 .home-menu {
   animation: homeAnime 0.5s ease-in;
-
+  will-change: transform;
 }
 
 @keyframes homeAnime {
@@ -294,7 +294,7 @@ ion-toolbar {
   height: 0;
   transform: translate3d(0, -1000px, 0);
   font-family: 'Roboto', sans-serif;
-
+  will-change: transform;
   p {
     text-align: center;
     color: #fff;
@@ -333,7 +333,7 @@ ion-slides {
 
 .pagedown {
   transform: translate3d(0, 110%, 0) !important;
-
+  will-change: transform;
   z-index: 20;
   overflow: hidden;
   position: fixed;
