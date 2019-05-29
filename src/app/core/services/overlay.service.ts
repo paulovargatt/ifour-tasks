@@ -22,6 +22,8 @@ export class OverlayService {
         const loading = await this.loadingController.create({
             message: 'Aguarde', ...opts
         });
+        await loading.present();
+        return loading;
     }
 
     async toast(opts?: ToastOptions) {

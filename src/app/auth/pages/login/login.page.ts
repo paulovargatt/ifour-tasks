@@ -58,8 +58,9 @@ export class LoginPage implements OnInit {
 
         } catch (e) {
             console.log('Error', e);
+            await this.overlay.toast({message: e.message});
         } finally {
-
+            loading.dismiss();
         }
     }
 
