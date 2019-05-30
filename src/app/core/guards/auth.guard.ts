@@ -3,7 +3,7 @@ import {
     ActivatedRouteSnapshot,
     CanActivate,
     CanActivateChild,
-    CanLoad,
+    CanLoad, Route,
     Router,
     RouterStateSnapshot,
     UrlSegment,
@@ -32,17 +32,19 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
         return this.canActivate(route, state);
     }
 
-    canLoad(route: Router, segments: UrlSegment[]): Observable<boolean> {
+
+    canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> {
         const url = segments.map(s => `/${s}`).join('');
         return this.checkAuthState(url).pipe(take(1));
     }
 
-    private checkAuthState(redirect) {
+
+    private checkAuthState(redirect: string): Observable<boolean> {
         return this.authService.isAuthenticated.pipe(
             tap(is => {
                 if (!is) {
                     this.router.navigate(['/login'], {
-                        queryParams: {redirect}
+                        queryParams: { redirect }
                     });
                 }
             })
