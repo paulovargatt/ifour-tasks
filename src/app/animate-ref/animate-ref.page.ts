@@ -20,7 +20,7 @@ export class AnimateRefPage implements OnInit {
 
     async fetchUser() {
         const res = await this.fake.getUsers(3) as any;
-        this.users = res.data;
+        this.users = res.confeti;
     }
 
 }

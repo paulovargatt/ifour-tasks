@@ -10,6 +10,8 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {HammerModule} from 'ngx-hammer';
 import {HttpClientModule} from '@angular/common/http';
 import {AnimateRefModule} from 'ngx-animate-ref';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FivethreeCoreModule} from '@fivethree/core';
 @NgModule({
     declarations: [],
     imports: [
@@ -18,6 +20,8 @@ import {AnimateRefModule} from 'ngx-animate-ref';
         AngularFireAuthModule,
         HammerModule,
         HttpClientModule,
+        BrowserAnimationsModule,
+        FivethreeCoreModule,
         AnimateRefModule.forRoot({defaultTransition: '0.5s ease-in-out all', enableBlur: true}),
     ],
     exports: [

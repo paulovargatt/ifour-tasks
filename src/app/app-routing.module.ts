@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'user-desc/:id', loadChildren: './animate-ref/user-desc/user-desc.module#UserDescPageModule' },
   { path: 'nubank', loadChildren: './nubank/nubank.module#NubankPageModule' },
   { path: 'tasks', loadChildren: './tasks/tasks.module#TasksModule', canLoad: [AuthGuard]},
+  { path: 'five', loadChildren: './pages/five/five.module#FivePageModule' },
 ];
 
 @NgModule({

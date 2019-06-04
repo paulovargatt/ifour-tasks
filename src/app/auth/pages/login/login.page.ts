@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../core/services/auth.service';
 import {AuthOptions, AuthTypes} from '../../../core/services/auth.types';
 import {OverlayService} from '../../../core/services/overlay.service';
 import {NavController} from '@ionic/angular';
 import {ActivatedRoute} from '@angular/router';
+import {FivLoadingContent} from '@fivethree/core';
 
 @Component({
     selector: 'app-login',
@@ -21,6 +22,8 @@ export class LoginPage implements OnInit {
         actionChange: 'Criar Conta'
     };
     private nameControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
+
+    @ViewChild('content') content: FivLoadingContent;
 
     constructor(private fb: FormBuilder,
                 private auth: AuthService,
@@ -70,6 +73,13 @@ export class LoginPage implements OnInit {
 
     get email(): FormControl {
         return <FormControl> this.authForm.get('email');
+    }
+
+    toggle(e) {
+        setTimeout(() => {
+           this.content.completeRefresh();
+        }, 500);
+        //   this.fiv.enabled = false;
     }
 
     get name(): FormControl {

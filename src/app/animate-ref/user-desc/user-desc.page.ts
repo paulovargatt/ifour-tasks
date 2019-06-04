@@ -26,7 +26,7 @@ export class UserDescPage implements OnInit {
 
     async fetchUser() {
         const res = await this.fake.getUser(this.userId) as any;
-        this.user = res.data;
+        this.user = res.confeti;
     }
 
 }

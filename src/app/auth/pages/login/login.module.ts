@@ -7,6 +7,7 @@ import {IonicModule} from '@ionic/angular';
 
 import {LoginPage} from './login.page';
 import {SharedModule} from '../../../shared/shared.module';
+import {FivethreeCoreModule, FivExpandableModule, FivLoadingContentModule, FivPullModule} from '@fivethree/core';
 
 const routes: Routes = [
     {
@@ -18,7 +19,10 @@ const routes: Routes = [
 @NgModule({
     imports: [
         SharedModule,
-        RouterModule.forChild(routes)
+        FivPullModule,
+        RouterModule.forChild(routes),
+        FivethreeCoreModule,
+        FivLoadingContentModule
     ],
     declarations: [LoginPage]
 })

@@ -1,0 +1,85 @@
+<fiv-expandable #ex>
+    <ion-item header (click)="ex.toggle()">
+        <ion-label>Expandable Header</ion-label>
+        <fiv-expandable-indicator slot="end">
+        </fiv-expandable-indicator>
+    </ion-item>
+    <div content padding>
+        put content here...
+    </div>
+</fiv-expandable>
+
+<ion-content color="light">
+
+    <div padding text-center>
+        <ion-button (click)="clickIcon()" fill="clear" color="light" class="player-btn">
+            <fiv-icon slot="icon-only" [name]="toggled ? 'pause' : 'play'" #feature2="fivFeature"
+                      [fivFeature]="content2"></fiv-icon>
+        </ion-button>
+
+    </div>
+
+    <!--  <ion-tabs>-->
+    <!--    <fiv-app-bar (fivFabClick)="presentToast('Floating action button clicked')" slot="bottom" [titleLayout]="'hide'"-->
+    <!--                 #bar [position]="'center'" [fabVisible]="true" [icon]="'md-play'">-->
+    <!--      <fiv-app-bar-tab left href="/app-bar" icon="add-circle" name="App Bar">-->
+    <!--      </fiv-app-bar-tab>-->
+    <!--      <fiv-app-bar-tab left href="/expandable" icon="md-resize" name="Expandable">-->
+    <!--      </fiv-app-bar-tab>-->
+    <!--      <fiv-app-bar-tab right href="/password" icon="md-eye" name="Password">-->
+    <!--      </fiv-app-bar-tab>-->
+    <!--      <fiv-app-bar-tab right href="/buttons" icon="md-more" name="Buttons">-->
+    <!--      </fiv-app-bar-tab>-->
+    <!--    </fiv-app-bar>-->
+    <!--  </ion-tabs>-->
+
+    <ion-button (click)="openDrawer()">
+        change state
+        <fiv-icon #feature="fivFeature" [fivFeature]="content" name="add"></fiv-icon>
+    </ion-button>
+
+    <div text-center>
+        <fiv-lottie [params]="lottieParams" [width]="150" [height]="150" (animationCreated)=onAnimationCreated($event)></fiv-lottie>
+    </div>
+
+    <div text-center style="display: flex; justify-content: center; align-items: center; margin-top: -300px" *ngIf="tutorialSuccess">
+        <fiv-lottie [params]="confetiParams"   [width]="400" [height]="400" (animationCreated)=onAnimationConfeti($event)></fiv-lottie>
+    </div>
+
+    <ng-template #content>
+        <div padding>
+            <ion-text color="light">
+                <h1>Take the Tour</h1>
+                <p>You can also build a little feature tour.</p>
+                <ion-button (click)="tutorialTwo()">Continue</ion-button>
+            </ion-text>
+        </div>
+    </ng-template>
+
+    <ng-template #content2>
+        <div padding>
+            <ion-text color="light">
+                <h1>Parte 2 Aqui :)</h1>
+                <p>You can also build a little feature tour.</p>
+                <ion-button (click)="hide()">Ok</ion-button>
+            </ion-text>
+        </div>
+    </ng-template>
+
+    <ion-button (click)="show()">
+        Tutorial
+    </ion-button>
+
+</ion-content>
+
+<fiv-bottom-sheet [(state)]="drawerState" [minimumHeight]="minimumHeight" [dockedHeight]="dockedHeight"
+                  [shouldBounce]="shouldBounce"
+                  [distanceTop]="distanceTop">
+
+    <fiv-bottom-sheet-content [float]="float" [rounded]="rounded" [handle]="handle">
+
+        <img src="https://images.unsplash.com/photo-1558980664-10e7170b5df9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80"
+             alt="">
+    </fiv-bottom-sheet-content>
+
+</fiv-bottom-sheet>
